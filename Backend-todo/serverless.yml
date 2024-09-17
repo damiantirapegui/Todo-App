@@ -1,0 +1,52 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: fe2023
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: todo
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: eu-north-1
+
+functions:
+  createTodo:
+    handler: handlers/createTodo.createTodo
+    events:
+      - httpApi:
+          path: /todos/createTodos
+          method: post
+
+  getTodoItem:
+    handler: handlers/getTodoItem.getTodoItem
+    events:
+      - httpApi:
+          path: /todos/{id}
+          method: get
+
+  getAllTodos:
+    handler: handlers/getAllTodos.getAllTodos
+    events:
+      - httpApi:
+          path: /todos
+          method: get
+
+  deleteTodo:
+    handler: handlers/deleteTodo.deleteTodo
+    events:
+      - httpApi:
+          path: /todos/delete/{id}
+          method: delete
+
+resources:
+  Resources:
+    TodosTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Todos
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST

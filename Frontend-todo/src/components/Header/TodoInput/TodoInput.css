@@ -1,0 +1,50 @@
+:root {
+  --my-orange-color: rgb(255, 165, 0);
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.input {
+  border: none;
+  border-bottom: 2px solid var(--my-orange-color);
+  background-color: black;
+  color: var(--my-orange-color);
+  caret-color: var(--my-orange-color);
+  width: 200px;
+  transition: width 0.3s ease-in-out;
+  font-size: 16px;
+}
+
+.input:focus {
+  width: 250px;
+  transition: 0.3s ease-in-out;
+  outline: none;
+}
+
+.button {
+  margin-left: 3rem;
+  cursor: pointer;
+  position: absolute;
+  transform: translateX(460%);
+  border-radius: 50%;
+  border: none;
+  height: 26px;
+  width: 26px;
+  font-size: 21px;
+  background-color: rgb(167, 241, 167);
+}
+
+.button:hover {
+  background-color: rgb(108, 160, 108);
+  transition: 0.2s;
+}
+
+.button:active {
+  background-color: rgb(227, 238, 227);
+  transition: 0.2s;
+}

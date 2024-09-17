@@ -1,0 +1,13 @@
+:root {
+  --my-orange-color: rgb(255, 165, 0);
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.title {
+  padding-top: 2rem;
+  color: var(--my-orange-color);
+}
